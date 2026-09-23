@@ -83,6 +83,7 @@ class Library:
     year=int(input("Enter year: "))
     rating=int(input("Enter rating: "))
     newBook = Book(title,author,year,rating)
+    self.addBook(newBook)
     return newBook
 
   def title_linearSearch(self,target):

@@ -1,3 +1,4 @@
+from library_system import Book, Magazine, Library
 print("\n=== TEST 1: Duplicate detection ===")
 test_lib1 = Library()
 book_a = Book("Dune", "Frank Herbert", 1965, 5)

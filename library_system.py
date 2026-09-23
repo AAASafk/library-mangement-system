@@ -1,3 +1,15 @@
+def print_help():
+    print("\n===== Library Management System =====")
+    print("Available commands:")
+    print("  inputBook()                 - Returns a book object")
+    print("  addBook(book)               - Add a new book to the library")
+    print("  removeBook(book)            - Remove a book from the library")
+    print("  title_bubbleSort()          - Sort the library alphabetically by title (bubble sort)")
+    print("  year_insertionSort()        - Sort the library chronologically by year (insertion sort)")
+    print("  title_linearSearch(target)  - Search for a book by title (linear search)")
+    print("  year_binarySearch(target)   - Search for a book by year (binary search)")
+    print("  printLib()                  - Print the full library")
+  
 class Book:
   def __init__(self,title,author,year,rating):
     self.title = title
@@ -71,7 +83,6 @@ class Library:
     year=int(input("Enter year: "))
     rating=int(input("Enter rating: "))
     newBook = Book(title,author,year,rating)
-    self.addBook(newBook)
     return newBook
 
   def title_linearSearch(self,target):
@@ -97,4 +108,4 @@ class Library:
     if target > self.Books[middle].year:
       return self.year_binarySearch(target,middle+1,end)
     
-
+print_help()

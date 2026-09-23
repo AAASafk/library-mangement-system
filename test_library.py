@@ -2,10 +2,10 @@ from library_system import Book, Magazine, Library
 print("\n=== TEST 1: Duplicate detection ===")
 test_lib1 = Library()
 book_a = Book("Dune", "Frank Herbert", 1965, 5)
-book_b = Book("Dune", "Frank Herbert", 1965, 5)  # separate object, same data
+book_b = Book("Dune", "Frank Herbert", 1965, 5)  
 test_lib1.addBook(book_a)
 before_len = len(test_lib1.Books)
-test_lib1.addBook(book_b)  # should print "Duplicate, Try Again"
+test_lib1.addBook(book_b)  
 after_len = len(test_lib1.Books)
 assert before_len == after_len == 1, "FAIL: a duplicate book was added — check your __eq__ method"
 print("PASS: duplicate correctly rejected")
@@ -62,7 +62,7 @@ test_lib5 = Library()
 test_lib5.addBook(Book("Old Book", "Author X", 1950, 3))
 test_lib5.addBook(Book("New Book", "Author Y", 2020, 4))
 test_lib5.addBook(Book("Mid Book", "Author Z", 1985, 5))
-test_lib5.year_insertionSort()  # binary search requires the list sorted by year first
+test_lib5.year_insertionSort()  
 years5 = sorted(b.year for b in test_lib5.Books)
 print("Library sorted by year:", years5)
  
@@ -75,7 +75,7 @@ assert result_largest != -1, "FAIL: the largest year was not found"
 result_middle = test_lib5.year_binarySearch(years5[1])
 assert result_middle != -1, "FAIL: the middle year was not found"
  
-result_missing_year = test_lib5.year_binarySearch(1899)  # a year nobody has
+result_missing_year = test_lib5.year_binarySearch(1899)  
 assert result_missing_year == -1, "FAIL: a year that doesn't exist was somehow 'found'"
  
 print("PASS: smallest, largest, middle, and missing years all handled correctly")
@@ -96,13 +96,13 @@ test_lib7 = Library()
 book_to_remove = Book("Removable Book", "Author R", 2005, 3)
 test_lib7.addBook(book_to_remove)
 before_remove_len = len(test_lib7.Books)
-test_lib7.removeBook(book_to_remove)  # should succeed
+test_lib7.removeBook(book_to_remove)  
 after_remove_len = len(test_lib7.Books)
 assert after_remove_len == before_remove_len - 1, "FAIL: an existing book was not removed"
  
 fake_book = Book("Never Added", "Nobody", 1900, 1)
 before_fake_len = len(test_lib7.Books)
-test_lib7.removeBook(fake_book)  # should print "not part of library"
+test_lib7.removeBook(fake_book)  
 after_fake_len = len(test_lib7.Books)
 assert after_fake_len == before_fake_len, "FAIL: removing a nonexistent book changed the library size"
 print("PASS: remove works correctly for both existing and nonexistent books")
@@ -125,6 +125,6 @@ assert result_single_binary == 0, "FAIL: binary search on a single-item library 
 print("PASS: sorting and binary search handle a single-item library correctly")
  
 print("\nNOTE: title_linearSearch and inputBook were not covered for the empty-library")
-print("case here because they call input() interactively — worth trying those by hand too.")
+print("case here because they call input() interactively.")
  
 print("\nAll automated checks finished. If no AssertionError appeared above, everything passed.")
